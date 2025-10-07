@@ -119,7 +119,7 @@ const social_media_icon = [
 ]
 
   return (
-    <footer className="relative bg-primary text-accent overflow-hidden">
+    <footer className="relative bg-primary text-accent overflow-hidden mt-56">
      {/* Footer Shape */}
       <div className="absolute opacity-5 w-full mx-auto">
         <img src={shape_3} alt="shape" className="w-[30%] mx-auto" />

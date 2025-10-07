@@ -6,31 +6,35 @@ const slider_data = [
   {
     id: 1,
     slider_img: sliderImage_1,
-    heading:"start your beautitul and bright future",
-    sub_heading:"welcome to eduka",
-    slider_desc: "Explore our exclusive jewelry collections crafted with precision and elegance.",
-    btn_text1: "About More",
-    btn_text2: "Learn More",
+    heading: "Start Your Beautiful and Bright Future",
+    sub_heading: "Welcome to Eduka Institute",
+    slider_desc:
+      "Unlock your potential with expert-led courses designed to shape your career and build your confidence for a brighter tomorrow.",
+    btn_text1: "About Us",
+    btn_text2: "Get Started",
   },
   {
     id: 2,
     slider_img: sliderImage_2,
-    heading:"heading",
-    sub_heading:"sub heading",
-    slider_desc: "Experience the beauty of timeless craftsmanship and modern design.",
-    btn_text1: "Explore Now",
-    btn_text2: "Contact Us",
+    heading: "Empower Your Learning Journey",
+    sub_heading: "Discover Endless Opportunities",
+    slider_desc:
+      "From technology to creativity — explore diverse learning paths that inspire growth, innovation, and success at every step.",
+    btn_text1: "Explore Courses",
+    btn_text2: "Join Today",
   },
   {
     id: 3,
     slider_img: sliderImage_3,
-    heading:"heading",
-    sub_heading:"sub heading",
-    slider_desc: "Your dream jewelry awaits — unique designs for every special moment.",
-    btn_text1: "Shop Now",
-    btn_text2: "See Details",
+    heading: "Learn, Grow & Achieve",
+    sub_heading: "Building Skills for a Better Future",
+    slider_desc:
+      "Our mission is to make quality education accessible to all — helping learners achieve excellence through knowledge and practice.",
+    btn_text1: "View Programs",
+    btn_text2: "Contact Us",
   },
 ];
+
 
 export default function HomeSlider() {
   return (
@@ -54,18 +58,18 @@ export default function HomeSlider() {
               <h2 className="text-lg md:text-xl font-bold leading-tight text-secondary underline upercase">
                 {item?.sub_heading}
               </h2>
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight capitalize">
                 {item?.heading}
               </h2>
-              <p className="text-lg md:text-xl opacity-90">
+              <p className="text-lg md:text-xl opacity-90 capitalize">
                 {item.slider_desc}
               </p>
               <div className="flex gap-4 mt-4">
-                <button className="bg-secondary text-white px-5 py-4  rounded-r-full rounded-tl-full hover:bg-accent hover:text-secondary transition-colors duration-300 text-center">
-                  {item.btn_text1} <FaArrowRightLong />
+                <button className="bg-secondary text-white px-5 py-3  rounded-r-full rounded-tl-full hover:bg-accent hover:text-secondary transition-colors duration-300 text-center">
+                  <div className='flex items-center justify-center gap-2'>{item.btn_text1} <FaArrowRightLong /></div>
                 </button>
-                <button className="bg-secondary text-white px-5 py-4  rounded-r-full rounded-tl-full hover:bg-accent hover:text-secondary transition-colors duration-300 text-center">
-                  {item.btn_text2} <FaArrowRightLong />
+                <button className="bg-secondary text-white px-5 py-3  rounded-r-full rounded-tl-full hover:bg-accent hover:text-secondary transition-colors duration-300 text-center">
+                  <div className='flex items-center justify-center gap-2'>{item.btn_text2} <FaArrowRightLong /></div>
                 </button>
               </div>
             </div>
