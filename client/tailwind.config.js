@@ -10,7 +10,7 @@ export default {
         poppins: ['Poppins, sans-serif'], // Adds a new `font-display` class
       },
       colors: {
-        neutral: "#434381",
+        neutral: "#6161c5",
         primary: "#012758",
         accent: "#fff",
         secondary: "#c42126",

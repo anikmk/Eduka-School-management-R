@@ -31,7 +31,7 @@ export default function Facilities() {
       description: "Join thousands of learners and professionals from all over the world.",
     },
   ];
-
+  
   return (
     <div className="relative">
       <div className="flex flex-wrap items-center justify-end absolute -bottom-32 right-0 gap-6 px-8 z-10">
