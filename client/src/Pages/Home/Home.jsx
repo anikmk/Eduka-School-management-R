@@ -1,6 +1,8 @@
 import HomeSlider from "./Hero/HomeSlider";
 import AboutUs from "./HomeSections/AboutUs/AboutUs";
+import Counter from "./HomeSections/Counter/Counter";
 import Facilities from "./HomeSections/FacilitiesSection/Facilities";
+import OurCourse from "./HomeSections/OurCourse/OurCourse";
 
 const Home = () => {
 
@@ -10,6 +12,8 @@ const Home = () => {
             <HomeSlider />
             <Facilities />
             <AboutUs />
+            <Counter />
+            <OurCourse />
          </div>
     );
 };
