@@ -1,38 +1,181 @@
+import { useState, useEffect } from "react";
+import {
+  FaBars,
+  FaTimes,
+  FaChevronDown,
+  FaChevronRight,
+} from "react-icons/fa";
+import nav_logo from "../../../assets/img/logo/logo.png"
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+  const [sticky, setSticky] = useState(false);
 
+   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-const Navbar = () => {
-    return (
-        <>
-            <div className="navbar bg-base-100">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+  const toggleDropdown = (menu) => {
+    setActiveDropdown(activeDropdown === menu ? null : menu);
+  };
+
+  const toggleSubmenu = (submenu) => {
+    setActiveSubmenu(activeSubmenu === submenu ? null : submenu);
+  };
+
+  return (
+   <nav
+      className={`bg-white p-2 shadow-md w-full z-50 fixed transition-all duration-200 ${
+        sticky ? "top-0 mt-0" : "top-0 mt-12"
+      }`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-4 py-3">
+        {/* Logo */}
+        <div className=""><img width={200} height={200} src={nav_logo} alt="" /></div>
+
+        {/* ===== Desktop Menu ===== */}
+        <ul className="hidden md:flex space-x-6 font-semibold relative">
+          {/* HOME */}
+          <li className="relative group">
+            <button className="flex items-center gap-1 hover:text-red-600">
+              Home <FaChevronDown className="text-xs mt-1" />
+            </button>
+            <ul className="absolute left-0 top-14 bg-black text-white w-48 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
+              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 1</li>
+              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 2</li>
+            </ul>
+          </li>
+
+          {/* ADMISSIONS */}
+          <li className="relative group">
+            <button className="flex items-center gap-1 hover:text-red-600">
+              Admissions <FaChevronDown className="text-xs mt-1" />
+            </button>
+            <ul className="absolute left-0 top-14 bg-black text-white w-56 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
+              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">How To Apply</li>
+
+              {/* Nested submenu */}
+              <li className="relative group/submenu px-4 py-2 hover:bg-red-600 cursor-pointer flex justify-between items-center">
+                Our Campus
+                <FaChevronRight className="text-xs" />
+                <ul className="absolute left-full top-0 bg-black text-white w-56 opacity-0 translate-x-2 invisible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 group-hover/submenu:visible transition-all duration-300 ease-in-out">
+                  <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Campus Tour</li>
+                  <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Campus Life</li>
+                  <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Notice Board</li>
+                  <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Student Activities</li>
+                </ul>
+              </li>
+
+              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Tuition Fees</li>
+            </ul>
+          </li>
+
+          {/* ACADEMICS */}
+          <li className="hover:text-red-600 cursor-pointer">Academics</li>
+
+          {/* BLOG */}
+          <li className="hover:text-red-600 cursor-pointer">Blog</li>
+
+          {/* PAGES */}
+          <li className="hover:text-red-600 cursor-pointer">Pages</li>
+
+          {/* CONTACT */}
+          <li className="hover:text-red-600 cursor-pointer">Contact</li>
+        </ul>
+
+        {/* ===== Mobile Menu Toggle ===== */}
+        <div
+          className="md:hidden cursor-pointer text-2xl"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Homepage</a></li>
-        <li><a>Portfolio</a></li>
-        <li><a>About</a></li>
-      </ul>
-    </div>
-  </div>
-  <div className="navbar-center">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-end">
-    <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-    </button>
-    <button className="btn btn-ghost btn-circle">
-      <div className="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-        <span className="badge badge-xs badge-primary indicator-item"></span>
-      </div>
-    </button>
-  </div>
-</div>
-        </>
-    );
-};
 
-export default Navbar;
+      {/* ===== Mobile Dropdown ===== */}
+      <div
+        className={`md:hidden bg-black text-white transition-all duration-300 overflow-hidden ${
+          isOpen ? "max-h-screen py-4" : "max-h-0"
+        }`}
+      >
+        <ul className="flex flex-col space-y-2 px-6">
+          {/* HOME */}
+          <li>
+            <button
+              onClick={() => toggleDropdown("home")}
+              className="w-full flex justify-between items-center py-2"
+            >
+              Home <FaChevronDown />
+            </button>
+            {activeDropdown === "home" && (
+              <ul className="pl-4 text-sm space-y-1">
+                <li className="py-1">Home 1</li>
+                <li className="py-1">Home 2</li>
+              </ul>
+            )}
+          </li>
+
+          {/* ADMISSIONS */}
+          <li>
+            <button
+              onClick={() => toggleDropdown("admissions")}
+              className="w-full flex justify-between items-center py-2"
+            >
+              Admissions <FaChevronDown />
+            </button>
+            {activeDropdown === "admissions" && (
+              <ul className="pl-4 text-sm space-y-1">
+                <li className="py-1">How To Apply</li>
+
+                {/* Fixed Nested Submenu */}
+                <li>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleSubmenu("campus");
+                    }}
+                    className="w-full flex justify-between items-center py-1"
+                  >
+                    Our Campus <FaChevronDown className="text-xs" />
+                  </button>
+
+                  {activeSubmenu === "campus" && (
+                    <ul className="pl-4 text-sm space-y-1">
+                      <li>Campus Tour</li>
+                      <li>Campus Life</li>
+                      <li>Notice Board</li>
+                      <li>Student Activities</li>
+                    </ul>
+                  )}
+                </li>
+
+                <li className="py-1">Tuition Fees</li>
+              </ul>
+            )}
+          </li>
+
+          {/* ACADEMICS */}
+          <li>Academics</li>
+
+          {/* BLOG */}
+          <li>Blog</li>
+
+          {/* PAGES */}
+          <li>Pages</li>
+
+          {/* CONTACT */}
+          <li>Contact</li>
+        </ul>
+      </div>
+    </nav>
+  );
+}
