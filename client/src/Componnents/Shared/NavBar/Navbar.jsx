@@ -4,8 +4,10 @@ import {
   FaTimes,
   FaChevronDown,
   FaChevronRight,
+  FaSearch,
 } from "react-icons/fa";
 import nav_logo from "../../../assets/img/logo/logo.png"
+import { FaPencil } from "react-icons/fa6";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -43,13 +45,13 @@ export default function Navbar() {
         <div className=""><img width={200} height={200} src={nav_logo} alt="" /></div>
 
         {/* ===== Desktop Menu ===== */}
-        <ul className="hidden md:flex space-x-6 font-semibold relative">
+        <ul className="hidden md:flex items-center space-x-6 font-semibold relative">
           {/* HOME */}
           <li className="relative group">
             <button className="flex items-center gap-1 hover:text-red-600">
               Home <FaChevronDown className="text-xs mt-1" />
             </button>
-            <ul className="absolute left-0 top-14 bg-black text-white w-48 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
+            <ul className="absolute left-0 top-14 bg-black text-accent w-48 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
               <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 1</li>
               <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 2</li>
             </ul>
@@ -60,14 +62,14 @@ export default function Navbar() {
             <button className="flex items-center gap-1 hover:text-red-600">
               Admissions <FaChevronDown className="text-xs mt-1" />
             </button>
-            <ul className="absolute left-0 top-14 bg-black text-white w-56 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
+            <ul className="absolute left-0 top-14 bg-black text-accent w-56 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
               <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">How To Apply</li>
 
               {/* Nested submenu */}
               <li className="relative group/submenu px-4 py-2 hover:bg-red-600 cursor-pointer flex justify-between items-center">
                 Our Campus
                 <FaChevronRight className="text-xs" />
-                <ul className="absolute left-full top-0 bg-black text-white w-56 opacity-0 translate-x-2 invisible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 group-hover/submenu:visible transition-all duration-300 ease-in-out">
+                <ul className="absolute left-full top-0 bg-black text-accent w-56 opacity-0 translate-x-2 invisible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 group-hover/submenu:visible transition-all duration-300 ease-in-out">
                   <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Campus Tour</li>
                   <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Campus Life</li>
                   <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Notice Board</li>
@@ -90,6 +92,10 @@ export default function Navbar() {
 
           {/* CONTACT */}
           <li className="hover:text-red-600 cursor-pointer">Contact</li>
+          {/* SEARCH */}
+          <li className="hover:text-red-600 cursor-pointer"><FaSearch /></li>
+          {/* BUTTON */}
+          <li className="text-accent bg-secondary py-2 px-3 rounded-t-3xl rounded-br-3xl cursor-pointer flex items-center gap-2"> <FaPencil /> Apply Now</li>
         </ul>
 
         {/* ===== Mobile Menu Toggle ===== */}
@@ -103,7 +109,7 @@ export default function Navbar() {
 
       {/* ===== Mobile Dropdown ===== */}
       <div
-        className={`md:hidden bg-black text-white transition-all duration-300 overflow-hidden ${
+        className={`md:hidden bg-black text-accent transition-all duration-300 overflow-hidden ${
           isOpen ? "max-h-screen py-4" : "max-h-0"
         }`}
       >
@@ -174,6 +180,10 @@ export default function Navbar() {
 
           {/* CONTACT */}
           <li>Contact</li>
+          {/* SEARCH */}
+          <li className="hover:text-red-600 cursor-pointer"><FaSearch /></li>
+          {/* BUTTON */}
+          <li className="text-accent bg-secondary py-2 px-3 rounded-t-3xl rounded-br-3xl cursor-pointer flex items-center gap-2 justify-center"> <FaPencil /> Apply Now</li>
         </ul>
       </div>
     </nav>

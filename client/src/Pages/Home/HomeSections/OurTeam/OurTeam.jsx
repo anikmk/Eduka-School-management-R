@@ -64,24 +64,24 @@ export default function OurTeam() {
 
             {/* Hover Social Icons */}
             <div className="absolute top-0 right-0 h-full w-0 bg-black/60 flex flex-col items-center justify-center gap-4 opacity-0 group-hover:opacity-100 group-hover:w-16 transition-all duration-500 ease-in-out">
-              <a href="#"className="text-white hover:text-secondary transition-colors">
+              <a href="#"className="text-accent hover:text-secondary transition-colors">
                 <FaFacebookF size={18} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-secondary transition-colors"
+                className="text-accent hover:text-secondary transition-colors"
               >
                 <FaWhatsapp size={18} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-secondary transition-colors"
+                className="text-accent hover:text-secondary transition-colors"
               >
                 <FaLinkedinIn size={18} />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-secondary transition-colors"
+                className="text-accent hover:text-secondary transition-colors"
               >
                 <FaYoutube size={18} />
               </a>
@@ -98,7 +98,7 @@ export default function OurTeam() {
               </p>
               </div>
               {/* Floating share icon */}
-            <div className=" bg-primary text-white p-2 w-10 h-10 flex items-center rounded-full shadow-md ml-4">
+            <div className=" bg-primary text-accent p-2 w-10 h-10 flex items-center rounded-full shadow-md ml-4">
               <FiShare2 />
             </div>
             </div>
