@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import nav_logo from "../../../assets/img/logo/logo.png"
 import { FaPencil } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -47,15 +48,7 @@ export default function Navbar() {
         {/* ===== Desktop Menu ===== */}
         <ul className="hidden md:flex items-center space-x-6 font-semibold relative">
           {/* HOME */}
-          <li className="relative group">
-            <button className="flex items-center gap-1 hover:text-red-600">
-              Home <FaChevronDown className="text-xs mt-1" />
-            </button>
-            <ul className="absolute left-0 top-14 bg-black text-accent w-48 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
-              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 1</li>
-              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">Home 2</li>
-            </ul>
-          </li>
+          <Link to={"/"}><li className="hover:text-red-600 cursor-pointer">Home</li></Link>
 
           {/* ADMISSIONS */}
           <li className="relative group">
@@ -63,7 +56,7 @@ export default function Navbar() {
               Admissions <FaChevronDown className="text-xs mt-1" />
             </button>
             <ul className="absolute left-0 top-14 bg-black text-accent w-56 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-in-out border-t-2 border-secondary">
-              <li className="px-4 py-2 hover:bg-red-600 cursor-pointer">How To Apply</li>
+              <Link to={"/admission/howToApply"}><li className="px-4 py-2 hover:bg-red-600 cursor-pointer">How To Apply</li></Link>
 
               {/* Nested submenu */}
               <li className="relative group/submenu px-4 py-2 hover:bg-red-600 cursor-pointer flex justify-between items-center">

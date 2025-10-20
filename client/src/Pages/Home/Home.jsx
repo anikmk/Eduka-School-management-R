@@ -10,6 +10,7 @@ import OurSkill from "./HomeSections/OurSkill/OurSkill";
 import OurTeam from "./HomeSections/OurTeam/OurTeam";
 import UpComingEvents from "./HomeSections/UpComingEvents/UpComingEvents";
 import Department from "./HomeSections/Department/Department"
+import OurClient from "./HomeSections/OurClient/OurClient";
 const Home = () => {
 
     return (
@@ -27,6 +28,7 @@ const Home = () => {
             <OurSkill />
             <Department />
             <OurBlogs />
+            <OurClient />
          </div>
     );
 };
